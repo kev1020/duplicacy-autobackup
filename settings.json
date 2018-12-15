@@ -1,0 +1,5 @@
+{
+    "listening_address": "0.0.0.0:8080",
+    "temporary_directory": "/root/.duplicacy-web/repositories",
+    "log_directory": "/root/.duplicacy-web/logs"
+}
