@@ -32,9 +32,14 @@ ENV BACKUP_SCHEDULE='* * * * *' \
 RUN apk --no-cache add ca-certificates && update-ca-certificates
 RUN wget https://github.com/gilbertchen/duplicacy/releases/download/v2.1.0/duplicacy_linux_x64_2.1.0 -O /usr/bin/duplicacy && \
     chmod +x /usr/bin/duplicacy
+RUN wget https://acrosync.com/duplicacy-web/duplicacy_web_linux_x64_0.2 -O /usr/bin/duplicacy_web && \
+    chmod +x /usr/bin/duplicacy_web
 
 RUN mkdir /app
 WORKDIR /app
+
+RUN mkdir /root/.duplicacy-web
+ADD *.json /root/.duplicacy-web/
 
 ADD *.sh ./
 RUN chmod +x *.sh
